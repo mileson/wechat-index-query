@@ -25,6 +25,23 @@
 - Promptable skill format with routing rules for OpenClaw or Codex agents
 - No third-party Python dependencies in the core scripts
 
+## Screenshots
+
+<table>
+  <tr>
+    <td width="42%">
+      <img src="docs/images/screenshots/wechat-index-ui.png" alt="WeChat Index compare view with keyword scores and trend chart" />
+    </td>
+    <td width="58%">
+      <img src="docs/images/screenshots/openclaw-wechat-index-result.png" alt="OpenClaw summary message after querying WeChat Index" />
+    </td>
+  </tr>
+  <tr>
+    <td><strong>WeChat Index compare page</strong><br/>The mini program shows keyword scores, day-over-day change, and the visible trend area.</td>
+    <td><strong>OpenClaw decision output</strong><br/>A structured summary can be posted back to chat after the query completes.</td>
+  </tr>
+</table>
+
 ## Requirements
 
 - macOS 13 or later

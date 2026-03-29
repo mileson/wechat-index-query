@@ -36,4 +36,6 @@ jobs:
           body_path: /tmp/release_notes.md
           files: |
             docs/images/workflow.svg
+            docs/images/screenshots/wechat-index-ui.png
+            docs/images/screenshots/openclaw-wechat-index-result.png
             examples/sample.md

@@ -20,6 +20,23 @@
 - 输出结构化 JSON，方便继续做总结或判断
 - 核心 Python 脚本只依赖标准库
 
+## 效果展示
+
+<table>
+  <tr>
+    <td width="42%">
+      <img src="docs/images/screenshots/wechat-index-ui.png" alt="微信指数对比界面" />
+    </td>
+    <td width="58%">
+      <img src="docs/images/screenshots/openclaw-wechat-index-result.png" alt="OpenClaw 汇总结论界面" />
+    </td>
+  </tr>
+  <tr>
+    <td><strong>微信指数结果页</strong><br/>展示对比词、指数值、日环比与趋势区域。</td>
+    <td><strong>OpenClaw 汇总输出</strong><br/>查询完成后可把结构化结论直接回传到聊天界面。</td>
+  </tr>
+</table>
+
 ## 运行前提
 
 - macOS 13 及以上
