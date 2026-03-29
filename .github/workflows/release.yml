@@ -1,0 +1,39 @@
+name: release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Resolve release notes
+        shell: bash
+        run: |
+          tag="${GITHUB_REF_NAME}"
+          notes="docs/releases/${tag}.md"
+          if [ -f "${notes}" ]; then
+            cp "${notes}" /tmp/release_notes.md
+          else
+            {
+              echo "# ${tag}"
+              echo
+              echo "Release notes were not found under docs/releases/${tag}.md."
+            } > /tmp/release_notes.md
+          fi
+
+      - name: Publish GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          body_path: /tmp/release_notes.md
+          files: |
+            docs/images/workflow.svg
+            examples/sample.md

@@ -1,0 +1,43 @@
+name: Bug report
+description: Report a reproducible problem in the WeChat Index skill workflow
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: What went wrong?
+      placeholder: The compare flow returns to the desktop after adding the second keyword.
+    validations:
+      required: true
+  - type: dropdown
+    id: mode
+    attributes:
+      label: Affected mode
+      options:
+        - single query
+        - compare query
+        - screenshot analysis
+        - probe or permission detection
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: Environment
+      description: Include macOS version, Python version, and whether Accessibility and Screen Recording are granted.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant output
+      description: Paste redacted JSON output or OCR evidence lines only. Do not include private account data.

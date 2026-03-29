@@ -1,0 +1,32 @@
+name: Feature request
+description: Suggest a user-visible improvement for the WeChat Index skill
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem to solve
+      description: What user task is blocked or slow today?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Describe the desired user-visible workflow.
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Main area
+      options:
+        - routing and prompt behavior
+        - keyword generation
+        - desktop automation
+        - OCR parsing
+        - report output
+    validations:
+      required: true

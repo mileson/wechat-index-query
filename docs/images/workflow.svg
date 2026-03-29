@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">wechat-index-query workflow</title>
+  <desc id="desc">Visual overview of the probe, query, OCR, and reporting flow for the WeChat Index skill bundle.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#111827" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0b1220" />
+      <stop offset="100%" stop-color="#172033" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#22c55e" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <style>
+      .label { font: 700 30px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #f8fafc; }
+      .small { font: 500 20px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #cbd5e1; }
+      .code { font: 600 18px ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; fill: #dbeafe; }
+      .pill { font: 700 16px -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #07131f; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="720" rx="32" fill="url(#bg)" />
+  <rect x="40" y="40" width="1120" height="640" rx="28" fill="url(#panel)" stroke="#334155" stroke-width="2" />
+
+  <text x="84" y="108" class="label">wechat-index-query</text>
+  <text x="84" y="142" class="small">Probe local readiness, drive the WeChat Index window, capture OCR, then return a structured report.</text>
+
+  <rect x="84" y="186" width="220" height="122" rx="22" fill="#132235" stroke="#1e293b" stroke-width="2" />
+  <text x="112" y="230" class="small">1. Focus Window</text>
+  <text x="112" y="270" class="code">focus_wechat_index.py</text>
+
+  <rect x="352" y="186" width="220" height="122" rx="22" fill="#132235" stroke="#1e293b" stroke-width="2" />
+  <text x="380" y="230" class="small">2. Probe State</text>
+  <text x="380" y="270" class="code">probe_wechat_index.py</text>
+
+  <rect x="620" y="186" width="496" height="122" rx="22" fill="#132235" stroke="#1e293b" stroke-width="2" />
+  <text x="648" y="230" class="small">3. Pick Mode</text>
+  <text x="648" y="270" class="code">single query / compare / image-only analysis</text>
+
+  <rect x="84" y="384" width="312" height="196" rx="24" fill="#10243a" stroke="#1d4ed8" stroke-width="2" />
+  <text x="114" y="430" class="small">Single Keyword</text>
+  <text x="114" y="468" class="code">query_wechat_index.py</text>
+  <text x="114" y="506" class="small">Locate search box, paste keyword,</text>
+  <text x="114" y="536" class="small">OCR current value and daily change.</text>
+
+  <rect x="444" y="384" width="312" height="196" rx="24" fill="#10243a" stroke="#16a34a" stroke-width="2" />
+  <text x="474" y="430" class="small">Compare Keywords</text>
+  <text x="474" y="468" class="code">compare_wechat_index.py</text>
+  <text x="474" y="506" class="small">Open the compare modal, add peers,</text>
+  <text x="474" y="536" class="small">then parse the visible comparison list.</text>
+
+  <rect x="804" y="384" width="312" height="196" rx="24" fill="#10243a" stroke="#f59e0b" stroke-width="2" />
+  <text x="834" y="430" class="small">Image or OCR Fallback</text>
+  <text x="834" y="468" class="code">read_wechat_index_window.py</text>
+  <text x="834" y="496" class="code">ocr_image.swift</text>
+  <text x="834" y="536" class="small">Capture the visible window or read</text>
+  <text x="834" y="566" class="small">an existing screenshot directly.</text>
+
+  <rect x="430" y="608" width="340" height="48" rx="24" fill="url(#accent)" />
+  <text x="510" y="639" class="pill">Structured JSON report</text>
+
+  <path d="M304 247 H352" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+  <path d="M572 247 H620" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+  <path d="M768 308 V352" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" />
+  <path d="M240 308 V352" stroke="#60a5fa" stroke-width="6" stroke-linecap="round" />
+  <path d="M600 308 V352" stroke="#60a5fa" stroke-width="6" stroke-linecap="round" />
+  <path d="M960 308 V352" stroke="#60a5fa" stroke-width="6" stroke-linecap="round" />
+  <path d="M240 580 C240 618 430 618 430 632" stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round" />
+  <path d="M600 580 V608" stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round" />
+  <path d="M960 580 C960 618 770 618 770 632" stroke="#60a5fa" stroke-width="6" fill="none" stroke-linecap="round" />
+</svg>

@@ -1,0 +1,29 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editor
+.idea/
+.vscode/settings.json
+*.swp
+
+# Logs
+*.log
+logs/
+
+# Secrets and local overrides
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+*.p12
+credentials.*
