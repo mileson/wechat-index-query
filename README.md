@@ -180,7 +180,7 @@ Initial release notes live at [docs/releases/v0.1.0.md](docs/releases/v0.1.0.md)
 
 MIT License. See [LICENSE](LICENSE).
 
-## 作者
+## Author
 - X: [Mileson07](https://x.com/Mileson07)
-- 小红书: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
-- 抖音: [超级峰](https://v.douyin.com/rH645q7trd8/)
+- Xiaohongshu: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
+- Douyin: [超级峰](https://v.douyin.com/rH645q7trd8/)

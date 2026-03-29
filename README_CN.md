@@ -130,3 +130,8 @@ python3 scripts/probe_wechat_index.py
 ## 许可证
 
 本项目使用 [MIT License](LICENSE)。
+
+## 作者
+- X: [Mileson07](https://x.com/Mileson07)
+- 小红书: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
+- 抖音: [超级峰](https://v.douyin.com/rH645q7trd8/)
