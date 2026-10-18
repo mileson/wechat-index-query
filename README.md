@@ -11,9 +11,15 @@
 
 ![Workflow overview](docs/images/workflow.svg)
 
+[What It Does](#readme-section-1) · [Screenshots](#readme-section-3) · [Requirements](#readme-section-4) · [Quick Start](#readme-section-5) · [Agent Prompt](#readme-section-6) · [Execution Model](#readme-section-7) · [Project Structure](#readme-section-8)
+
+<a id="readme-section-1"></a>
+
 ## What It Does
 
 `wechat-index-query` is a local skill bundle for OpenClaw, Codex, or any desktop automation workflow that needs to query `微信指数` on macOS. It focuses the WeChat mini program window, probes local permissions, captures the visible area, runs Vision OCR, and returns a structured report for single-keyword, compare-keyword, or screenshot-assisted analysis.
+
+<a id="readme-section-2"></a>
 
 ## Features
 
@@ -24,6 +30,8 @@
 - Structured JSON report output for downstream automation and summarization
 - Promptable skill format with routing rules for OpenClaw or Codex agents
 - No third-party Python dependencies in the core scripts
+
+<a id="readme-section-3"></a>
 
 ## Screenshots
 
@@ -42,6 +50,8 @@
   </tr>
 </table>
 
+<a id="readme-section-4"></a>
+
 ## Requirements
 
 - macOS 13 or later
@@ -51,6 +61,8 @@
 - Python 3.11 or later
 - Accessibility permission for the host app or shell
 - Screen Recording permission for OCR and screenshot capture
+
+<a id="readme-section-5"></a>
 
 ## Quick Start
 
@@ -88,6 +100,28 @@ Analyze an existing screenshot:
 python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-index.png
 ```
 
+<a id="readme-section-6"></a>
+
+## Agent Prompt
+
+Use this repository as a skill bundle when a user asks to query, compare, or interpret WeChat Index keywords on macOS.
+
+```text
+Use the `wechat-index-query` skill for requests such as:
+- 查询微信指数关于 XXX
+- 对比 A、B、C 的微信指数
+- 看这张微信指数截图
+
+Workflow:
+1. Run `python3 scripts/focus_wechat_index.py`
+2. Run `python3 scripts/probe_wechat_index.py`
+3. If probe status is `ready`, choose single, compare, or image mode
+4. If probe is not ready, explain the blocker and switch to screenshot-assisted analysis
+5. Summarize with the template in `template.md`
+```
+
+<a id="readme-section-7"></a>
+
 ## Execution Model
 
 ```text
@@ -108,23 +142,7 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
                               +----------------------+
 ```
 
-## Agent Prompt
-
-Use this repository as a skill bundle when a user asks to query, compare, or interpret WeChat Index keywords on macOS.
-
-```text
-Use the `wechat-index-query` skill for requests such as:
-- 查询微信指数关于 XXX
-- 对比 A、B、C 的微信指数
-- 看这张微信指数截图
-
-Workflow:
-1. Run `python3 scripts/focus_wechat_index.py`
-2. Run `python3 scripts/probe_wechat_index.py`
-3. If probe status is `ready`, choose single, compare, or image mode
-4. If probe is not ready, explain the blocker and switch to screenshot-assisted analysis
-5. Summarize with the template in `template.md`
-```
+<a id="readme-section-8"></a>
 
 ## Project Structure
 
@@ -152,6 +170,8 @@ Workflow:
     `-- ocr_image.swift
 ```
 
+<a id="readme-section-9"></a>
+
 ## Verification
 
 Local verification for this repository can be kept lightweight before a real WeChat session is available:
@@ -164,21 +184,31 @@ python3 scripts/probe_wechat_index.py
 
 The last command requires macOS desktop permissions and a visible `微信指数` window to enter full mode.
 
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines, verification steps, and documentation expectations.
-
-## Security
-
-See [SECURITY.md](SECURITY.md). Please do not disclose desktop automation or permission bypass issues in a public issue.
+<a id="readme-section-10"></a>
 
 ## Releases
 
 Initial release notes live at [docs/releases/v0.1.0.md](docs/releases/v0.1.0.md). A tag-based GitHub Actions workflow is included to publish release notes and bundled visual assets.
 
+<a id="readme-section-11"></a>
+
+## Security
+
+See [SECURITY.md](SECURITY.md). Please do not disclose desktop automation or permission bypass issues in a public issue.
+
+<a id="readme-section-12"></a>
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines, verification steps, and documentation expectations.
+
+<a id="readme-section-13"></a>
+
 ## License
 
 MIT License. See [LICENSE](LICENSE).
+
+<a id="readme-section-14"></a>
 
 ## Author
 - X: [Mileson07](https://x.com/Mileson07)
