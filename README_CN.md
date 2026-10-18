@@ -6,9 +6,9 @@
 
 ![工作流概览](docs/images/workflow.svg)
 
-## 项目简介
+[核心能力](#readme-section-1) · [效果展示](#readme-section-2) · [快速开始](#readme-section-3) · [推荐使用方式](#readme-section-4) · [项目简介](#readme-section-5) · [目录结构](#readme-section-7) · [验证](#readme-section-8)
 
-`wechat-index-query` 用来驱动 WeChat 桌面端里的 `微信指数` 小程序窗口，完成聚焦窗口、权限探测、截图 OCR、单词查询、对比词查询，以及截图辅助分析。它适合接入 OpenClaw、Codex 或其他本地 Agent 工作流，作为一个可复用的技能包来使用。
+<a id="readme-section-1"></a>
 
 ## 核心能力
 
@@ -19,6 +19,8 @@
 - 支持对已有截图做 OCR 分析
 - 输出结构化 JSON，方便继续做总结或判断
 - 核心 Python 脚本只依赖标准库
+
+<a id="readme-section-2"></a>
 
 ## 效果展示
 
@@ -37,15 +39,7 @@
   </tr>
 </table>
 
-## 运行前提
-
-- macOS 13 及以上
-- 已安装并登录 WeChat 桌面端
-- 已打开名为 `微信指数` 的小程序窗口
-- 已安装 Xcode Command Line Tools
-- Python 3.11 及以上
-- 已为运行终端或宿主应用授予辅助功能权限
-- 已为运行终端或宿主应用授予屏幕录制权限
+<a id="readme-section-3"></a>
 
 ## 快速开始
 
@@ -79,6 +73,40 @@ python3 scripts/run_wechat_index_report.py --compare "查车牌" "车牌查询" 
 python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-index.png
 ```
 
+<a id="readme-section-4"></a>
+
+## 推荐使用方式
+
+如果把它接进 Agent：
+
+```text
+1. 先运行 focus_wechat_index.py
+2. 再运行 probe_wechat_index.py
+3. ready 状态下执行单词、对比词或截图模式
+4. 非 ready 状态下改为截图辅助模式，并明确说明缺失权限
+5. 按 template.md 的结构输出结论和建议
+```
+
+<a id="readme-section-5"></a>
+
+## 项目简介
+
+`wechat-index-query` 用来驱动 WeChat 桌面端里的 `微信指数` 小程序窗口，完成聚焦窗口、权限探测、截图 OCR、单词查询、对比词查询，以及截图辅助分析。它适合接入 OpenClaw、Codex 或其他本地 Agent 工作流，作为一个可复用的技能包来使用。
+
+<a id="readme-section-6"></a>
+
+## 运行前提
+
+- macOS 13 及以上
+- 已安装并登录 WeChat 桌面端
+- 已打开名为 `微信指数` 的小程序窗口
+- 已安装 Xcode Command Line Tools
+- Python 3.11 及以上
+- 已为运行终端或宿主应用授予辅助功能权限
+- 已为运行终端或宿主应用授予屏幕录制权限
+
+<a id="readme-section-7"></a>
+
 ## 目录结构
 
 ```text
@@ -98,17 +126,7 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
 - `examples/sample.md` 提供输出样例
 - `scripts/` 包含探测、聚焦、点击、OCR、查询、对比与汇总脚本
 
-## 推荐使用方式
-
-如果把它接进 Agent：
-
-```text
-1. 先运行 focus_wechat_index.py
-2. 再运行 probe_wechat_index.py
-3. ready 状态下执行单词、对比词或截图模式
-4. 非 ready 状态下改为截图辅助模式，并明确说明缺失权限
-5. 按 template.md 的结构输出结论和建议
-```
+<a id="readme-section-8"></a>
 
 ## 验证
 
@@ -122,14 +140,20 @@ python3 scripts/probe_wechat_index.py
 
 最后一个命令需要真实桌面权限和可见的 `微信指数` 窗口。
 
+<a id="readme-section-9"></a>
+
 ## 贡献与安全
 
 - 开发和提交流程见 [CONTRIBUTING.md](CONTRIBUTING.md)
 - 安全披露流程见 [SECURITY.md](SECURITY.md)
 
+<a id="readme-section-10"></a>
+
 ## 许可证
 
 本项目使用 [MIT License](LICENSE)。
+
+<a id="readme-section-11"></a>
 
 ## 作者
 - X: [Mileson07](https://x.com/Mileson07)
