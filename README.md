@@ -1,180 +1,136 @@
 # wechat-index-query
 
-> macOS desktop-assisted automation for querying and comparing the WeChat mini program `微信指数`.
+> 一个面向 macOS 的微信指数桌面辅助查询与分析 skill 仓库。
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
-[![Platform: macOS](https://img.shields.io/badge/platform-macOS%2013%2B-black.svg)](#requirements)
-[![Python](https://img.shields.io/badge/python-3.11%2B-blue.svg)](#requirements)
-[![Type](https://img.shields.io/badge/distribution-skill%20bundle-orange.svg)](#quick-start)
 
-[简体中文](README_CN.md)
 
-![Workflow overview](docs/images/workflow.svg)
+![工作流概览](docs/images/workflow.svg)
 
-[What It Does](#readme-section-1) · [Screenshots](#readme-section-3) · [Requirements](#readme-section-4) · [Quick Start](#readme-section-5) · [Agent Prompt](#readme-section-6) · [Execution Model](#readme-section-7) · [Project Structure](#readme-section-8)
+[核心能力](#readme-section-1) · [效果展示](#readme-section-2) · [快速开始](#readme-section-3) · [推荐使用方式](#readme-section-4) · [项目简介](#readme-section-5) · [目录结构](#readme-section-7) · [验证](#readme-section-8)
 
 <a id="readme-section-1"></a>
 
-## What It Does
+## 核心能力
 
-`wechat-index-query` is a local skill bundle for OpenClaw, Codex, or any desktop automation workflow that needs to query `微信指数` on macOS. It focuses the WeChat mini program window, probes local permissions, captures the visible area, runs Vision OCR, and returns a structured report for single-keyword, compare-keyword, or screenshot-assisted analysis.
+- 探测辅助功能、屏幕录制、窗口可见性是否就绪
+- 自动聚焦 `微信指数` 窗口
+- 支持单关键词查询与结果读取
+- 支持 `添加对比词` 方式的多词对比
+- 支持对已有截图做 OCR 分析
+- 输出结构化 JSON，方便继续做总结或判断
+- 核心 Python 脚本只依赖标准库
 
 <a id="readme-section-2"></a>
 
-## Features
-
-- Desktop-ready probe for Accessibility, Screen Recording, and WeChat window state
-- Single-keyword query flow for direct WeChat Index lookup
-- Compare mode that uses the mini program's `添加对比词` flow
-- Screenshot OCR mode for analyzing an existing image without driving the UI
-- Structured JSON report output for downstream automation and summarization
-- Promptable skill format with routing rules for OpenClaw or Codex agents
-- No third-party Python dependencies in the core scripts
-
-<a id="readme-section-3"></a>
-
-## Screenshots
+## 效果展示
 
 <table>
   <tr>
     <td width="42%">
-      <img src="docs/images/screenshots/wechat-index-ui.png" alt="WeChat Index compare view with keyword scores and trend chart" />
+      <img src="docs/images/screenshots/wechat-index-ui.png" alt="微信指数对比界面" />
     </td>
     <td width="58%">
-      <img src="docs/images/screenshots/openclaw-wechat-index-result.png" alt="OpenClaw summary message after querying WeChat Index" />
+      <img src="docs/images/screenshots/openclaw-wechat-index-result.png" alt="OpenClaw 汇总结论界面" />
     </td>
   </tr>
   <tr>
-    <td><strong>WeChat Index compare page</strong><br/>The mini program shows keyword scores, day-over-day change, and the visible trend area.</td>
-    <td><strong>OpenClaw decision output</strong><br/>A structured summary can be posted back to chat after the query completes.</td>
+    <td><strong>微信指数结果页</strong><br/>展示对比词、指数值、日环比与趋势区域。</td>
+    <td><strong>OpenClaw 汇总输出</strong><br/>查询完成后可把结构化结论直接回传到聊天界面。</td>
   </tr>
 </table>
 
-<a id="readme-section-4"></a>
+<a id="readme-section-3"></a>
 
-## Requirements
+## 快速开始
 
-- macOS 13 or later
-- WeChat desktop installed and logged in
-- WeChat mini program window named `微信指数` available under process `WeChat`
-- Xcode Command Line Tools with `/usr/bin/swift`
-- Python 3.11 or later
-- Accessibility permission for the host app or shell
-- Screen Recording permission for OCR and screenshot capture
-
-<a id="readme-section-5"></a>
-
-## Quick Start
-
-1. Open the WeChat mini program window named `微信指数`.
-2. Grant Accessibility and Screen Recording permissions to the terminal or host app.
-3. Run the readiness probe.
+先检查环境是否具备完整自动化能力：
 
 ```bash
 python3 scripts/probe_wechat_index.py
 ```
 
-4. Bring the window to the foreground when needed.
+如需把窗口拉到前台：
 
 ```bash
 python3 scripts/focus_wechat_index.py
 ```
 
-5. Run one of the supported modes.
-
-Single keyword:
+单词查询：
 
 ```bash
 python3 scripts/run_wechat_index_report.py "车牌查询"
 ```
 
-Compare keywords:
+多词对比：
 
 ```bash
 python3 scripts/run_wechat_index_report.py --compare "查车牌" "车牌查询" "挪车电话"
 ```
 
-Analyze an existing screenshot:
+截图分析：
 
 ```bash
 python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-index.png
 ```
 
-<a id="readme-section-6"></a>
+<a id="readme-section-4"></a>
 
-## Agent Prompt
+## 推荐使用方式
 
-Use this repository as a skill bundle when a user asks to query, compare, or interpret WeChat Index keywords on macOS.
+如果把它接进 Agent：
 
 ```text
-Use the `wechat-index-query` skill for requests such as:
-- 查询微信指数关于 XXX
-- 对比 A、B、C 的微信指数
-- 看这张微信指数截图
-
-Workflow:
-1. Run `python3 scripts/focus_wechat_index.py`
-2. Run `python3 scripts/probe_wechat_index.py`
-3. If probe status is `ready`, choose single, compare, or image mode
-4. If probe is not ready, explain the blocker and switch to screenshot-assisted analysis
-5. Summarize with the template in `template.md`
+1. 先运行 focus_wechat_index.py
+2. 再运行 probe_wechat_index.py
+3. ready 状态下执行单词、对比词或截图模式
+4. 非 ready 状态下改为截图辅助模式，并明确说明缺失权限
+5. 按 template.md 的结构输出结论和建议
 ```
+
+<a id="readme-section-5"></a>
+
+## 项目简介
+
+`wechat-index-query` 用来驱动 WeChat 桌面端里的 `微信指数` 小程序窗口，完成聚焦窗口、权限探测、截图 OCR、单词查询、对比词查询，以及截图辅助分析。它适合接入 OpenClaw、Codex 或其他本地 Agent 工作流，作为一个可复用的技能包来使用。
+
+<a id="readme-section-6"></a>
+
+## 运行前提
+
+- macOS 13 及以上
+- 已安装并登录 WeChat 桌面端
+- 已打开名为 `微信指数` 的小程序窗口
+- 已安装 Xcode Command Line Tools
+- Python 3.11 及以上
+- 已为运行终端或宿主应用授予辅助功能权限
+- 已为运行终端或宿主应用授予屏幕录制权限
 
 <a id="readme-section-7"></a>
 
-## Execution Model
-
-```text
-+-------------------+      +----------------------+      +------------------+
-| focus_wechat_*    | ---> | probe_wechat_*       | ---> | read / OCR layer |
-+-------------------+      +----------------------+      +------------------+
-          |                           |                             |
-          v                           v                             v
-+-------------------+      +----------------------+      +------------------+
-| query keyword     |      | compare keywords     |      | image-only mode  |
-+-------------------+      +----------------------+      +------------------+
-          \___________________________    __________________________/
-                                      \  /
-                                       \/
-                              +----------------------+
-                              | structured JSON      |
-                              | summary and advice   |
-                              +----------------------+
-```
-
-<a id="readme-section-8"></a>
-
-## Project Structure
+## 目录结构
 
 ```text
 .
 |-- SKILL.md
-|-- README.md
-|-- README_CN.md
 |-- template.md
 |-- examples/
-|   `-- sample.md
 |-- references/
-|   `-- permissions.md
 `-- scripts/
-    |-- probe_wechat_index.py
-    |-- focus_wechat_index.py
-    |-- query_wechat_index.py
-    |-- compare_wechat_index.py
-    |-- read_wechat_index_window.py
-    |-- run_wechat_index_report.py
-    |-- wechat_index_common.py
-    |-- back_wechat_index.py
-    |-- click_at.swift
-    |-- paste_keyword_at.swift
-    `-- ocr_image.swift
 ```
 
-<a id="readme-section-9"></a>
+其中：
 
-## Verification
+- `SKILL.md` 定义触发词、路由规则和推荐工作流
+- `template.md` 定义面向最终回答的结构模板
+- `references/permissions.md` 说明权限阻塞与降级模式
+- `examples/sample.md` 提供输出样例
+- `scripts/` 包含探测、聚焦、点击、OCR、查询、对比与汇总脚本
 
-Local verification for this repository can be kept lightweight before a real WeChat session is available:
+<a id="readme-section-8"></a>
+
+## 验证
+
+建议至少执行以下本地检查：
 
 ```bash
 python3 -m py_compile scripts/*.py
@@ -182,35 +138,24 @@ python3 scripts/run_wechat_index_report.py --help
 python3 scripts/probe_wechat_index.py
 ```
 
-The last command requires macOS desktop permissions and a visible `微信指数` window to enter full mode.
+最后一个命令需要真实桌面权限和可见的 `微信指数` 窗口。
+
+<a id="readme-section-9"></a>
+
+## 贡献与安全
+
+- 开发和提交流程见 [CONTRIBUTING.md](CONTRIBUTING.md)
+- 安全披露流程见 [SECURITY.md](SECURITY.md)
 
 <a id="readme-section-10"></a>
 
-## Releases
+## 许可证
 
-Initial release notes live at [docs/releases/v0.1.0.md](docs/releases/v0.1.0.md). A tag-based GitHub Actions workflow is included to publish release notes and bundled visual assets.
+本项目使用 [MIT License](LICENSE)。
 
 <a id="readme-section-11"></a>
 
-## Security
-
-See [SECURITY.md](SECURITY.md). Please do not disclose desktop automation or permission bypass issues in a public issue.
-
-<a id="readme-section-12"></a>
-
-## Contributing
-
-See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidelines, verification steps, and documentation expectations.
-
-<a id="readme-section-13"></a>
-
-## License
-
-MIT License. See [LICENSE](LICENSE).
-
-<a id="readme-section-14"></a>
-
-## Author
+## 作者
 - X: [Mileson07](https://x.com/Mileson07)
-- Xiaohongshu: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
-- Douyin: [超级峰](https://v.douyin.com/rH645q7trd8/)
+- 小红书: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
+- 抖音: [超级峰](https://v.douyin.com/rH645q7trd8/)
