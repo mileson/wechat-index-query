@@ -1,4 +1,21 @@
-# wechat-index-query
+<a id="wechat-index-query"></a>
+
+<div align="center">
+
+# 微信指数 · 桌面辅助查询 Skill
+
+**在 macOS 桌面环境中组织微信指数查询与分析。**
+
+桌面查询 · 条件探测 · 指数分析 · 工作流参考
+
+[![中文说明](https://img.shields.io/badge/%E8%AF%B4%E6%98%8E-%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87-059669)](#readme-detail-13)
+[![项目类型](https://img.shields.io/badge/%E9%A1%B9%E7%9B%AE-Skill-6366f1)](#readme-detail-13)
+
+[✨ 核心特性](#readme-detail-13) · [👀 效果预览](#readme-detail-15) · [✅ 适用场景](#readme-detail-audience) · [🚀 快速开始](#readme-detail-17) · [📖 推荐使用方式](#readme-detail-19) · [📖 项目介绍](#readme-detail-21)
+
+</div>
+
+---
 
 > 一个面向 macOS 的微信指数桌面辅助查询与分析 skill 仓库。
 
@@ -6,11 +23,13 @@
 
 ![工作流概览](docs/images/workflow.svg)
 
-[核心能力](#readme-section-1) · [效果展示](#readme-section-2) · [快速开始](#readme-section-3) · [推荐使用方式](#readme-section-4) · [项目简介](#readme-section-5) · [目录结构](#readme-section-7) · [验证](#readme-section-8)
-
 <a id="readme-section-1"></a>
 
-## 核心能力
+<a id="核心能力"></a>
+
+<a id="readme-detail-13"></a>
+
+## ✨ 核心特性
 
 - 探测辅助功能、屏幕录制、窗口可见性是否就绪
 - 自动聚焦 `微信指数` 窗口
@@ -22,7 +41,11 @@
 
 <a id="readme-section-2"></a>
 
-## 效果展示
+<a id="效果展示"></a>
+
+<a id="readme-detail-15"></a>
+
+## 👀 效果预览
 
 <table>
   <tr>
@@ -39,9 +62,19 @@
   </tr>
 </table>
 
+<a id="readme-detail-audience"></a>
+
+## ✅ 适用场景
+
+适合需要辅助查询微信指数的 macOS 使用者。
+
 <a id="readme-section-3"></a>
 
-## 快速开始
+<a id="快速开始"></a>
+
+<a id="readme-detail-17"></a>
+
+## 🚀 快速开始
 
 先检查环境是否具备完整自动化能力：
 
@@ -75,7 +108,11 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
 
 <a id="readme-section-4"></a>
 
-## 推荐使用方式
+<a id="推荐使用方式"></a>
+
+<a id="readme-detail-19"></a>
+
+## 📖 推荐使用方式
 
 如果把它接进 Agent：
 
@@ -89,13 +126,21 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
 
 <a id="readme-section-5"></a>
 
-## 项目简介
+<a id="项目简介"></a>
+
+<a id="readme-detail-21"></a>
+
+## 📖 项目介绍
 
 `wechat-index-query` 用来驱动 WeChat 桌面端里的 `微信指数` 小程序窗口，完成聚焦窗口、权限探测、截图 OCR、单词查询、对比词查询，以及截图辅助分析。它适合接入 OpenClaw、Codex 或其他本地 Agent 工作流，作为一个可复用的技能包来使用。
 
 <a id="readme-section-6"></a>
 
-## 运行前提
+<a id="运行前提"></a>
+
+<a id="readme-detail-23"></a>
+
+## ⚙️ 运行前提
 
 - macOS 13 及以上
 - 已安装并登录 WeChat 桌面端
@@ -107,7 +152,13 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
 
 <a id="readme-section-7"></a>
 
-## 目录结构
+<a id="目录结构"></a>
+
+<a id="readme-detail-25"></a>
+
+## 📁 目录结构
+
+下面按实现职责列出目录位置，便于把修改放回对应模块。
 
 ```text
 .
@@ -128,7 +179,11 @@ python3 scripts/run_wechat_index_report.py --image /absolute/path/to/wechat-inde
 
 <a id="readme-section-8"></a>
 
-## 验证
+<a id="验证"></a>
+
+<a id="readme-detail-27"></a>
+
+## 🧪 验证
 
 建议至少执行以下本地检查：
 
@@ -142,20 +197,35 @@ python3 scripts/probe_wechat_index.py
 
 <a id="readme-section-9"></a>
 
-## 贡献与安全
+<a id="贡献与安全"></a>
+
+<a id="readme-detail-29"></a>
+
+## 🤝 贡献与安全
+
+问题反馈和改进提交可从下面的入口开始，提交前完成项目已有检查。
 
 - 开发和提交流程见 [CONTRIBUTING.md](CONTRIBUTING.md)
 - 安全披露流程见 [SECURITY.md](SECURITY.md)
 
 <a id="readme-section-10"></a>
 
-## 许可证
+<a id="许可证"></a>
+
+<a id="readme-detail-31"></a>
+
+## 📄 许可证
 
 本项目使用 [MIT License](LICENSE)。
 
 <a id="readme-section-11"></a>
 
-## 作者
+<a id="作者"></a>
+
+<a id="readme-detail-33"></a>
+
+## 👤 作者
+
 - X: [Mileson07](https://x.com/Mileson07)
 - 小红书: [超级峰](https://xhslink.com/m/4LnJ9aB1f97)
 - 抖音: [超级峰](https://v.douyin.com/rH645q7trd8/)
